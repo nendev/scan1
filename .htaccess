@@ -1,0 +1,11 @@
+# Bật RewriteEngine
+RewriteEngine On
+
+# Áp dụng RewriteRule để chuyển hướng /api về trang chính
+RewriteRule ^api(.*)$ https://scan1-hvku.vercel.app [L,R=301]
+
+# Ngăn truy cập vào thư mục /api bằng cách trả về lỗi 403 (Forbidden)
+<Directory "/path/to/your/webroot/api">
+    Options -Indexes
+    Deny from all
+</Directory>
